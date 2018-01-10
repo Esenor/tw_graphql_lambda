@@ -1,0 +1,14 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: tw Lambda GrapQL Demo.
+Resources:
+  twGraphQLDemo:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: src/index.handler
+      Runtime: nodejs6.10
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'serverless-role'

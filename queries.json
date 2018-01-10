@@ -1,0 +1,7 @@
+{
+  "graphQLQuery": [
+    "{ customers: getCustomers {id, name, lastName, mail} }",
+    "mutation {newCustomerA: addCustomer(customer: {name: \"Rick\", lastName: \"Sanchez\", mail: \"rick_sanchez@gmail.com\"}),newCustomerB: addCustomer(customer: {name: \"Phoenix\", lastName: \"Man\", mail: \"condor_man@gmail.com\"})}",
+    "{ customers: getCustomers {id, name, lastName, mail} }"
+  ]
+}
