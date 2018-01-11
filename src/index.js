@@ -1,5 +1,6 @@
 const GqlParser = require('./gqlParser')
 exports.handler = (event, context, callback) => {
+  console.log(event)
   /**
    * 
    */
@@ -28,7 +29,30 @@ exports.handler = (event, context, callback) => {
   /**
    * 
    */
-  arrayParseAddapter(event.graphQLQuery).then((result) => {
-    callback(null, result)
+  let queries = JSON.parse(event.body).queries
+  if (typeof queries === 'undefined') {
+    apiError(callback)
+  } else {
+    arrayParseAddapter(queries).then((result) => {
+      callback(null, {
+        statusCode: 200,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(result)
+      })
+    })
+  }
+}
+
+function apiError(callback) {
+  callback(null, {
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      error: 'no payload or no queries key in payload'
+    })
   })
 }

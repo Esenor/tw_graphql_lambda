@@ -9,6 +9,12 @@ Resources:
       Runtime: nodejs6.10
       CodeUri: .
       Description: ''
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /graphql
+            Method: post
       MemorySize: 128
       Timeout: 3
-      Role: 'serverless-role'
+      Role: 'changeIt'
