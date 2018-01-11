@@ -9,3 +9,5 @@ GraphQL example with SAM Lambda function
     $ npm install -g aws-sam-local
     $ npm i
     $ sam local invoke twGraphQLDemo -e ./queries.json
+    # or
+    $ sam local start-api --template ./template.yml
